@@ -1,7 +1,7 @@
 {
   "name": "openrosa-formlist",
-  "version": "1.0.0",
-  "description": "Create a valid JavaRosa FormList of xforms see https://bitbucket.org/javarosa/javarosa/wiki/FormListAPI",
+  "version": "1.0.1",
+  "description": "Create a valid OpenRosa FormList of xforms see https://bitbucket.org/javarosa/javarosa/wiki/FormListAPI",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js | tap-spec",

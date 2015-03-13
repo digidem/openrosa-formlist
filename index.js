@@ -98,8 +98,8 @@ function createFormList(forms, options, callback) {
       hasAttachments = false;
 
     parser.on('startElement', function(tagname, attrs) {
-      if (path === options.instancePath && !meta.formId) {
-        meta.formId = attrs.id || tagname;
+      if (path === options.instancePath && !meta.formID) {
+        meta.formID = attrs.id || tagname;
         if (attrs.version) meta.version = attrs.version;
       }
       path += '/' + tagname;
@@ -130,12 +130,12 @@ function createFormList(forms, options, callback) {
     parser.on('end', function() {
       meta.hash = 'md5:' + md5.digest('hex');
       if (options.downloadUrl) {
-        meta.downloadUrl = options.downloadUrl.replace(URL_RE, meta.formId);
+        meta.downloadUrl = options.downloadUrl.replace(URL_RE, meta.formID);
       } else if (xformStream.uri && xformStream.uri.href) {
         meta.downloadUrl = xformStream.uri.href;
       }
       if (hasAttachments && options.manifestUrl) {
-        meta.manifestUrl = options.manifestUrl.replace(URL_RE, meta.formId);
+        meta.manifestUrl = options.manifestUrl.replace(URL_RE, meta.formID);
       }
       callback(null, { xform: meta });
     });
