@@ -27,6 +27,7 @@
   "devDependencies": {
     "dox": "^0.6.1",
     "doxme": "^1.8.2",
+    "resumer": "0.0.0",
     "tap-spec": "^2.2.2",
     "tape": "^3.5.0"
   },

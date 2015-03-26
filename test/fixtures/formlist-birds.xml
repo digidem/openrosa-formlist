@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xforms xmlns="http://openrosa.org/xforms/xformsList">
+  <xform>
+    <name>Birds</name>
+    <formID>Birds</formID>
+    <hash>md5:357c5e3c8ab47e08b40b31869d70f490</hash>
+    <downloadUrl>https://raw.githubusercontent.com/digidem-test/xform-test/master/forms/birds/form.xml</downloadUrl>
+  </xform>
+</xforms>
