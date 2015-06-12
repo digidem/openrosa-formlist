@@ -75,19 +75,17 @@ function createFormList (forms, options, callback) {
 
   async.map(streams, parse, function buildXml (err, results) {
     if (err) return callback(err)
-
     var xml = builder.create({
       xforms: {
         '@xmlns': 'http://openrosa.org/xforms/xformsList',
-        '#list': results
       }
     }, {
       encoding: 'UTF-8'
-    }).end({
-      pretty: true
     })
-
-    callback(null, xml)
+    if (results && results.length > 0) {
+        xml.ele({'#list': results})
+    }
+    callback(null, xml.end({pretty: true}))
   })
 
   function parse (xformStream, callback) {

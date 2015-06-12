@@ -2,6 +2,7 @@ var test = require('tape')
 var fs = require('fs')
 var resumer = require('resumer')
 var request = require('request')
+var expat = require('node-expat')
 var createFormList = require('../')
 
 var forms = [
@@ -77,6 +78,17 @@ test('Accepts an array of streams from strings', function (t) {
   createFormList(formStreams, function (err, result) {
     t.error(err, 'Does not produce error')
     t.equal(result, expectedXml, 'Matches expected xml FormList')
+    t.end()
+  })
+})
+
+test('Empty forms parameter returns parseable XML', function(t) {
+  createFormList([], function (err, result) {
+    var parser = new expat.Parser('UTF-8')
+    t.error(err, 'Does not produce error')
+    t.doesNotThrow(function() {
+      parser.write(result)
+    });
     t.end()
   })
 })
